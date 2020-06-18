@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public int Phase;
     public float TempsInstru;
-    
+    bool Changer;
     float timer;
    public  int scoreP1;
   public int scoreP2;
@@ -68,8 +68,8 @@ public class GameManager : MonoBehaviour
             case 2: //Desactiver Tape-mole  -  Activer Slash
            
                 PanelPhase2.SetActive(true);
-                this.gameObject.GetComponent<Swipo>().StartPhase2();
                 SetTimer(this.gameObject.GetComponent<Swipo>().Temps);
+                this.gameObject.GetComponent<Swipo>().StartPhase2();
                 break; 
             case 3:  //Desactiver Slash - Activer Shake
           
@@ -90,6 +90,11 @@ public class GameManager : MonoBehaviour
     public void ChangePlayer()
     {
         PlayerOneTurn = !PlayerOneTurn;
+        panelInstruc.SetActive(true);
+        TxtTitre.text = "TOUR 2";
+        TxtInstruc.text = "Passer le téléphone au joueur2";
+        Changer = true;
+
         UpdateScore(0);
     }
 
@@ -113,6 +118,26 @@ public class GameManager : MonoBehaviour
             {
                 ChangePhase();
                 once = true;
+            }
+            if (Changer) {
+                panelInstruc.SetActive(false);
+                Changer = false;
+                switch (Phase)
+                {
+                    case 1: 
+                        
+                        break;  
+                    case 2: 
+                        
+                        this.gameObject.GetComponent<Swipo>().StartPhase2();
+                        this.gameObject.GetComponent<Swipo>().StartPhase2();
+                        break; 
+                    case 3:
+                        this.gameObject.GetComponent<Shaker>().StartPhase3();
+                        SetTimer(this.gameObject.GetComponent<Shaker>().Temps);
+                        break;
+
+                }
             }
         }
     }
