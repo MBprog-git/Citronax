@@ -62,22 +62,29 @@ public class Shaker : MonoBehaviour
 
     void EndPhase3()
     {
-        float Final;
-        if (GameManager.instance.PlayerOneTurn)
-        {
-            Final = GameManager.instance.scoreP1 * Multip;
-        }
-        else
-        {
-            Final = GameManager.instance.scoreP2 * Multip;
+  
 
-        }
-        
-        GameManager.instance.UpdateScore((int)Final);
-        GameManager.instance.ChangePhase();
+            float Final;
+            if (GameManager.instance.PlayerOneTurn)
+            {
+                Final = GameManager.instance.scoreP1 * Multip;
+            GameManager.instance.UpdateScore((int)Final);
+            GameManager.instance.ChangePlayer();
+            StartPhase3();
+            }
+            else
+            {
+                Final = GameManager.instance.scoreP2 * Multip;
+            GameManager.instance.UpdateScore((int)Final);
 
-        
+            GameManager.instance.ChangePlayer();
+            GameManager.instance.ChangePhase();
+            }
+
+
+
     }
+    
 
 }
 

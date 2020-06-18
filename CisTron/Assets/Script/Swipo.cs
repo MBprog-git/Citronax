@@ -131,6 +131,14 @@ public class Swipo : MonoBehaviour
     }
     void EndPhase2()
     {
-        GameManager.instance.ChangePhase();
+        if (GameManager.instance.PlayerOneTurn) {
+            GameManager.instance.ChangePlayer();
+            StartPhase2();
+        }
+        else
+        {
+            GameManager.instance.ChangePlayer();
+            GameManager.instance.ChangePhase();
+        }
     }
 }

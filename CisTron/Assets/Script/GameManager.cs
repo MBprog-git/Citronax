@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     public GameObject PanelPhase1;
     public GameObject PanelPhase2;
     public GameObject PanelPhase3;
-    public GameObject PanelPhase4;
     public GameObject PanelPhaseFinal;
 
     void Awake()
@@ -66,24 +65,12 @@ public class GameManager : MonoBehaviour
                 break;
                     case 4: // Désactiver shake - Montrer score
                 PanelPhase3.SetActive(false);
-                PanelPhase4.SetActive(true);
+                PanelPhaseFinal.SetActive(true);
                 break;     
-            case 5: //Changer player - Retour phase 0 / Final score
+  
                 
-                PanelPhase4.SetActive(false);
-                if(PlayerOneTurn == false)
-                {
-                    
-                    PanelPhaseFinal.SetActive(true);
-                }
-                else
-                {
-                    ChangePlayer();
-                    Phase = 0;
-                
-                    ChangePhase();
-                }
-                break;
+            
+               
         }
     }
     public void ChangePlayer()
@@ -97,6 +84,7 @@ public class GameManager : MonoBehaviour
         timer = Temps;
         TxtTimer.text = timer + " s";
     }
+
     public void UpdateTimer()
     {
         timer -= Time.deltaTime;
@@ -107,9 +95,9 @@ public class GameManager : MonoBehaviour
         else
         {
         TxtTimer.text = "0 s";
-
         }
     }
+
     public void UpdateScore(int AddScore)
     {
         if (PlayerOneTurn)
