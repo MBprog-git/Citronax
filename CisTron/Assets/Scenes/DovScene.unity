@@ -204,3 +204,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2059524956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059524958}
+  - component: {fileID: 2059524957}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2059524957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059524956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6caf875c209d7b418ffbdbfab1c018b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitTab:
+  - {fileID: 1191394268019453823, guid: 1d5820ccc124f994588d6ee4ab170241, type: 3}
+  - {fileID: 7436307672498225367, guid: 766afb7bc7720fd47bf2b91394800696, type: 3}
+  - {fileID: 6792986462809565467, guid: d6ace4c1cdfa63a49a958598b3d80be6, type: 3}
+  - {fileID: 6735395452453056748, guid: cedf42c16e492484ca078991f41c9d26, type: 3}
+  - {fileID: 558578033032365312, guid: 7790557276da448419261b3b14dfab90, type: 3}
+  isActive: 1
+--- !u!4 &2059524958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059524956}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
