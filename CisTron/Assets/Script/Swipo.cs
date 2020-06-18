@@ -69,12 +69,12 @@ public class Swipo : MonoBehaviour
                         break;
                 }
             }
+
+        }
             else if (GameManager.instance.Phase == 2) 
             {
                 EndPhase2();
             }
-
-        }
         /* Click Version pour test
          if (Input.GetMouseButtonDown(0)) 
          {
