@@ -55,7 +55,7 @@ public class Shaker : MonoBehaviour
 
     }
 
-     void StartPhase3()
+   public  void StartPhase3()
     {
         timer = Temps;
     }

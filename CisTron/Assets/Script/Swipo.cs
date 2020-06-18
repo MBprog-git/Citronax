@@ -125,7 +125,7 @@ public class Swipo : MonoBehaviour
 
     }
 
-     void StartPhase2()
+   public  void StartPhase2()
     {
         timer = Temps;
     }
