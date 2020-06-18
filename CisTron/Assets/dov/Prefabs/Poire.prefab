@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7806211261795624239}
   - component: {fileID: 1153324017101077008}
   - component: {fileID: 547456168747943745}
+  - component: {fileID: -6939577708016047680}
   m_Layer: 0
   m_Name: Poire
   m_TagString: Untagged
@@ -108,3 +109,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
+--- !u!114 &-6939577708016047680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558578033032365312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec1eb3305feeac4883ffa35e07f222c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 5
