@@ -25,11 +25,11 @@ public class Swipo : MonoBehaviour
                 switch (touch.phase)
                 {
                     case TouchPhase.Began:
-                        startPosition = touch.position;
+                        startPosition = Camera.main.ScreenToWorldPoint(touch.position);
                         break;
                     case TouchPhase.Ended:
 
-                        endPosition = touch.position;
+                        endPosition = Camera.main.ScreenToWorldPoint(touch.position);
 
                         if (Vector2.Distance(startPosition, endPosition) > minimalSwipeDistance && GameManager.instance.Phase == 2)
                         {
