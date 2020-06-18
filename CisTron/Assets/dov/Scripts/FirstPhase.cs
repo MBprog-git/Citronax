@@ -7,13 +7,24 @@ public class FirstPhase : MonoBehaviour
     public GameObject[] fruitTab;
     public bool isActive;
     private GameObject theObject;
-    private int score = 0;
-    private int count = 0;
-    Collider2D col;
+    public float waitInstance = 0;
+    //private int score = 0;
+    //private int count = 0;
+    List<Collider2D> listCol = new List<Collider2D>();
+    List<Vector3> listPos = new List<Vector3>();
+
+    private void Start()
+    {
+        isActive = true;
+    }
 
     private void Update()
     {
-        StartCoroutine(FruitInstance());
+        if (isActive)
+        {
+            StartCoroutine(FruitInstance());
+        }
+        
 
         if (Input.touchCount > 0)
         {
@@ -23,9 +34,14 @@ public class FirstPhase : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 Collider2D touchedCollider = Physics2D.OverlapPoint(touchPosition);
-                if (col == touchedCollider)
+                for (int i = 0; i < listCol.Count; i++)
                 {
-                    Destroy(col.gameObject);
+                    if (listCol[i] == touchedCollider)
+                    {
+                        Destroy(listCol[i].gameObject);
+                        listCol.RemoveAt(i);
+                        listPos.RemoveAt(i);
+                    }
                 }
             }
         }
@@ -33,10 +49,22 @@ public class FirstPhase : MonoBehaviour
 
     IEnumerator FruitInstance()
     {
-        yield return new WaitForSeconds(2);
+        isActive = false;
         theObject = fruitTab[Random.Range(0, 5)];
-        Vector3 pos = new Vector3(Random.Range(-2, 2), Random.Range(-3, 3), 0);
+        Vector3 pos = new Vector3(Random.Range(-3, 3), Random.Range(-2, 2), 0);
+        
+        for (int i = 0; i < listPos.Count; i++)
+        {
+            if (pos == listPos[i])
+            {
+                isActive = true;
+                yield break;
+            }
+        }
         GameObject ob = Instantiate(theObject, pos, Quaternion.identity);
-        col = ob.GetComponent<Collider2D>();
+        listCol.Add(ob.GetComponent<Collider2D>());
+        listPos.Add(pos);
+        yield return new WaitForSeconds(waitInstance);
+        isActive = true;
     }
 }
