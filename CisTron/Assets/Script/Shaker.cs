@@ -11,7 +11,7 @@ public class Shaker : MonoBehaviour
     float timer;
 
     public float MinAccel;
-
+    bool ingame;
 
     float Multip;
  
@@ -48,7 +48,7 @@ public class Shaker : MonoBehaviour
                 }
             }
         }
-        else if(GameManager.instance.Phase == 3)
+        else if(GameManager.instance.Phase == 3 && ingame)
         {
             EndPhase3();
         }
@@ -58,11 +58,12 @@ public class Shaker : MonoBehaviour
    public  void StartPhase3()
     {
         timer = Temps;
+        ingame = true;
     }
 
     void EndPhase3()
     {
-  
+        ingame = false;
 
             float Final;
             if (GameManager.instance.PlayerOneTurn)

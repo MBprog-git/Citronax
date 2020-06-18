@@ -9,7 +9,7 @@ public class Swipo : MonoBehaviour
 
     public float Temps;
         float timer;
-
+    bool Ingame;
     public float minimalSwipeDistance;
     public int AddScoreSwipe;
 
@@ -71,7 +71,7 @@ public class Swipo : MonoBehaviour
             }
 
         }
-            else if (GameManager.instance.Phase == 2) 
+            else if (GameManager.instance.Phase == 2 && Ingame ) 
             {
                 EndPhase2();
             }
@@ -128,9 +128,11 @@ public class Swipo : MonoBehaviour
    public  void StartPhase2()
     {
         timer = Temps;
+        Ingame = true;
     }
     void EndPhase2()
     {
+        Ingame = false;
         if (GameManager.instance.PlayerOneTurn) {
             GameManager.instance.ChangePlayer();
             StartPhase2();

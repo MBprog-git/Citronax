@@ -39,10 +39,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetInstruc();
+        UpdateScore(0);
     }
     void Update()
     {
         UpdateTimer();   
+        
 
     }
     public void doExitGame()
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangePhase()
     {
-        Phase++;
+        
         panelInstruc.SetActive(false);
 
         switch (Phase)
@@ -90,10 +92,15 @@ public class GameManager : MonoBehaviour
     public void ChangePlayer()
     {
         PlayerOneTurn = !PlayerOneTurn;
+        if (!PlayerOneTurn)
+        {
         panelInstruc.SetActive(true);
         TxtTitre.text = "TOUR 2";
         TxtInstruc.text = "Passer le téléphone au joueur2";
+            SetTimer(TempsInstru);
         Changer = true;
+
+        }
 
         UpdateScore(0);
     }
@@ -130,7 +137,7 @@ public class GameManager : MonoBehaviour
                     case 2: 
                         
                         this.gameObject.GetComponent<Swipo>().StartPhase2();
-                        this.gameObject.GetComponent<Swipo>().StartPhase2();
+                        SetTimer(this.gameObject.GetComponent<Swipo>().Temps);
                         break; 
                     case 3:
                         this.gameObject.GetComponent<Shaker>().StartPhase3();
@@ -147,35 +154,38 @@ public class GameManager : MonoBehaviour
         if (PlayerOneTurn)
         {
             scoreP1 += AddScore;
-            TxtScore.text = "Score: " + scoreP1;
+            TxtScore.text = "Score J1: " + scoreP1 ;
         }
         else
         {
             scoreP2 += AddScore;
-            TxtScore.text = "Score: " + scoreP2;
+            TxtScore.text = "Score J2: " + scoreP2 ;
         }
     }
 
     public void SetInstruc()
     {
+        Phase++;
         switch (Phase)
         {
-            case 0:
-                //Set instru taptap
+            case 1:
+
                 TxtTitre.text = " TAPTAP!";
-                TxtInstruc.text = "Tap et non fap";
+                TxtInstruc.text = "Tap et non fap"; 
                 panelInstruc.SetActive(true);
          
                 break;    
-            case 1:
+            case 2:
                 PanelPhase1.SetActive(false);
-                //Set instru SwipySwipe
+                TxtTitre.text = " SlashySlash!";
+                TxtInstruc.text = "Chéri ça va couper"; 
                 panelInstruc.SetActive(true);
             
                 break;      
-            case 2:
+            case 3:
                 PanelPhase2.SetActive(false);
-                //Set instru Shakinator
+                TxtTitre.text = " Shaka!";
+                TxtInstruc.text = "Shake your booty";
                 panelInstruc.SetActive(true);
                 break;
         }
