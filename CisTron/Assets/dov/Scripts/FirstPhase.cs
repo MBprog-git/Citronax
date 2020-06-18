@@ -8,8 +8,8 @@ public class FirstPhase : MonoBehaviour
     public bool isActive;
     private GameObject theObject;
     public float waitInstance = 0;
-    //private int score = 0;
-    //private int count = 0;
+    public int score = 0;
+    public int count = 0;
     List<Collider2D> listCol = new List<Collider2D>();
     List<Vector3> listPos = new List<Vector3>();
 
@@ -41,10 +41,38 @@ public class FirstPhase : MonoBehaviour
                         Destroy(listCol[i].gameObject);
                         listCol.RemoveAt(i);
                         listPos.RemoveAt(i);
+                        if (listCol[i].tag == "CitronVert")
+                        {
+                            if (count >= 5)
+                                WinStrick();
+                            
+                            else
+                                score += 1;
+                        }
+                        else
+                        {
+                            if (count >= 5)
+                                LoseStrick();
+
+                            else
+                                score -= 1;
+                        }
+
+                        count += 1;
                     }
                 }
             }
         }
+    }
+
+    void WinStrick()
+    {
+        score += 2;
+    }
+
+    void LoseStrick()
+    {
+        score -= 2;
     }
 
     IEnumerator FruitInstance()
