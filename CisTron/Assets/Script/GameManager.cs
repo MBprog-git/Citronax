@@ -7,25 +7,27 @@ public class GameManager : MonoBehaviour
 {
 
  public static GameManager instance;
-    public Camera cam;
 
    public bool PlayerOneTurn =true;
 
     public int Phase;
     public float TempsInstru;
     
-    public Text TxtTimer;
     float timer;
-    public Text TxtScore;
    public  int scoreP1;
   public int scoreP2;
+    [Space]
+    [Header("Banchement")]
+    public Camera cam;
+    public Text TxtTimer;
+    public Text TxtScore;
     public GameObject PanelPhase1;
     public GameObject PanelPhase2;
     public GameObject PanelPhase3;
     public GameObject PanelPhaseFinal;
     public GameObject panelInstruc;
-    public Text TxtInstruc;
     public Text TxtTitre;
+    public Text TxtInstruc;
 
     bool once = true;
 
@@ -34,7 +36,10 @@ public class GameManager : MonoBehaviour
         if (instance == null)
             instance = this;
     }
-
+    private void Start()
+    {
+        SetInstruc();
+    }
     void Update()
     {
         UpdateTimer();   
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer > 0)
         {
-        TxtTimer.text = timer + " s";
+        TxtTimer.text = (int)timer + " s";
         }
         else
         {
@@ -132,6 +137,8 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 //Set instru taptap
+                TxtTitre.text = " TAPTAP!";
+                TxtInstruc.text = "Tap et non fap";
                 panelInstruc.SetActive(true);
          
                 break;    
