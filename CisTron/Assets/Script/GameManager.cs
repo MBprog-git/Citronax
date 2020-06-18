@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
    public bool PlayerOneTurn =true;
 
     public int Phase;
-
+    public float TempsInstru;
+    
     public Text TxtTimer;
     float timer;
     public Text TxtScore;
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
     public GameObject PanelPhase2;
     public GameObject PanelPhase3;
     public GameObject PanelPhaseFinal;
+    public GameObject panelInstruc;
+    public Text TxtInstruc;
+    public Text TxtTitre;
+
+    bool once = true;
 
     void Awake()
     {
@@ -32,6 +38,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         UpdateTimer();   
+
     }
     public void doExitGame()
     {
@@ -46,19 +53,21 @@ public class GameManager : MonoBehaviour
     public void ChangePhase()
     {
         Phase++;
+        panelInstruc.SetActive(false);
+
         switch (Phase)
         {
             case 1: //Activer Tape-mole
                 PanelPhase1.SetActive(true);
                 break; 
             case 2: //Desactiver Tape-mole  -  Activer Slash
-                PanelPhase1.SetActive(false);
+           
                 PanelPhase2.SetActive(true);
                 this.gameObject.GetComponent<Swipo>().StartPhase2();
                 SetTimer(this.gameObject.GetComponent<Swipo>().Temps);
                 break; 
             case 3:  //Desactiver Slash - Activer Shake
-                PanelPhase2.SetActive(false);
+          
                 PanelPhase3.SetActive(true);
                 this.gameObject.GetComponent<Shaker>().StartPhase3();
                 SetTimer(this.gameObject.GetComponent<Shaker>().Temps);
@@ -95,6 +104,11 @@ public class GameManager : MonoBehaviour
         else
         {
         TxtTimer.text = "0 s";
+            if (!once)
+            {
+                ChangePhase();
+                once = true;
+            }
         }
     }
 
@@ -110,5 +124,30 @@ public class GameManager : MonoBehaviour
             scoreP2 += AddScore;
             TxtScore.text = "Score: " + scoreP2;
         }
+    }
+
+    public void SetInstruc()
+    {
+        switch (Phase)
+        {
+            case 0:
+                //Set instru taptap
+                panelInstruc.SetActive(true);
+         
+                break;    
+            case 1:
+                PanelPhase1.SetActive(false);
+                //Set instru SwipySwipe
+                panelInstruc.SetActive(true);
+            
+                break;      
+            case 2:
+                PanelPhase2.SetActive(false);
+                //Set instru Shakinator
+                panelInstruc.SetActive(true);
+                break;
+        }
+        SetTimer(TempsInstru);
+        once = false;
     }
 }

@@ -78,7 +78,7 @@ public class Shaker : MonoBehaviour
             GameManager.instance.UpdateScore((int)Final);
 
             GameManager.instance.ChangePlayer();
-            GameManager.instance.ChangePhase();
+            GameManager.instance.SetInstruc();
             }
 
 
