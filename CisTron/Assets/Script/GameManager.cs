@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject panelInstruc;
     public Text TxtTitre;
     public Text TxtInstruc;
+    public Text TxtFinalTitre;
+    public Text TxtFinal;
+    public Text TxtScoreP1;
+    public Text TxtScoreP2;
 
     bool once = true;
 
@@ -81,7 +85,7 @@ public class GameManager : MonoBehaviour
                 break;
                     case 4: // Désactiver shake - Montrer score
                 PanelPhase3.SetActive(false);
-                PanelPhaseFinal.SetActive(true);
+                CalculFinal();
                 break;     
   
                 
@@ -191,5 +195,28 @@ public class GameManager : MonoBehaviour
         }
         SetTimer(TempsInstru);
         once = false;
+    }
+
+    void CalculFinal()
+    {
+        if (scoreP1 == scoreP2)
+        {
+            TxtFinalTitre.text = "Egalité...";
+
+        }
+        else if (scoreP1> scoreP2)
+        {
+            TxtFinalTitre.text = "Victoire du joueur 1!";
+
+        }else
+        {
+            TxtFinalTitre.text = "Victoire du joueur 2!";
+
+        }
+        TxtScoreP1.text = "Joueur 1 : "+scoreP1;
+        TxtScoreP2.text = "Joueur 2 : "+scoreP2;
+        TxtScore.gameObject.SetActive(false);
+        TxtTimer.gameObject.SetActive(false);
+        PanelPhaseFinal.SetActive(true);
     }
 }
