@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceRota: -250
-  ForcePropuX: 100
+  ForcePropuX: 300
   ForcePropuY: 200
 --- !u!1 &659012020
 GameObject:
@@ -680,6 +680,9 @@ MonoBehaviour:
   Forme3: {fileID: 0}
   Glagla: {fileID: 0}
   Arsenic: {fileID: 0}
+  BordX: 0
+  MaxY: 0
+  MinY: 0
 --- !u!114 &1794867345
 MonoBehaviour:
   m_ObjectHideFlags: 0
