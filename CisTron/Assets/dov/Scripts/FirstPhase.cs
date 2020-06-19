@@ -22,10 +22,10 @@ public class FirstPhase : MonoBehaviour
 
     private void Update()
     {
-        StartCoroutine(TimeFirstPhase());
 
         if (startGame)
         {
+            StartCoroutine(TimeFirstPhase());
             if (isActive)
             {
                 StartCoroutine(FruitInstance());
