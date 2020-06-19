@@ -9,12 +9,25 @@ public class Swipo : MonoBehaviour
 
     public float Temps;
         float timer;
+    public float PopRate;
+    float timerPop;
     bool Ingame;
     public float minimalSwipeDistance;
     public int AddScoreSwipe;
-
-
-
+    int count;
+    int transfoUn;
+    int transfoDeux;
+    int transfo3;
+    GameObject TransfoActif;
+    public GameObject Forme0;
+    public GameObject Forme1;
+    public GameObject Forme2;
+    public GameObject Forme3;
+    public GameObject Glagla;
+    public GameObject Arsenic;
+    public float BordX;
+    public float MaxY;
+    public float MinY;
     void Update()
     {
         if (timer > 0) { 
@@ -61,6 +74,26 @@ public class Swipo : MonoBehaviour
                                 if (hit2D.collider.tag == "Player" && !EndTouch && !StartTouch)
                                 {
                                     GameManager.instance.UpdateScore(AddScoreSwipe);
+                                    count++;
+                                    if (count >= transfo3)
+                                    {
+                                        TransfoActif.SetActive(false);
+                                        TransfoActif = Forme3;
+                                        TransfoActif.SetActive(true);
+
+                                    }else if (count >= transfoDeux)
+                                    {
+                                        TransfoActif.SetActive(false);
+                                        TransfoActif = Forme2;
+                                        TransfoActif.SetActive(true);
+                                    }
+                                    else if (count >= transfoUn)
+                                    {
+                                        TransfoActif.SetActive(false);
+                                        TransfoActif = Forme1;
+                                        TransfoActif.SetActive(true);
+                                    }
+
                                 }
 
                             }
@@ -129,9 +162,13 @@ public class Swipo : MonoBehaviour
     {
         timer = Temps;
         Ingame = true;
+        TransfoActif = Forme0;
+        count = 0;
+        TransfoActif.SetActive(true);
     }
     void EndPhase2()
     {
+        TransfoActif.SetActive(false);
         Ingame = false;
         if (GameManager.instance.PlayerOneTurn) {
             GameManager.instance.ChangePlayer();
@@ -141,6 +178,40 @@ public class Swipo : MonoBehaviour
         {
             GameManager.instance.ChangePlayer();
             GameManager.instance.SetInstruc();
+        }
+    }
+
+    void Pop()
+    {
+        timerPop -= Time.deltaTime;
+        if (timerPop < 0)
+        {
+
+            int Type = Random.Range(0, 5);
+            int Bord = Random.Range(0, 2);
+
+            if(Bord == 1)
+            {
+               BordX  = -BordX;
+            }
+        
+            float y = Random.Range(MinY,MaxY);
+          
+            
+            Vector2 SpawnPos = new Vector2(BordX, y);
+            if (Type==4 || Type==3)
+            {
+                //Pop Malus
+                GameObject go = Instantiate(Arsenic,SpawnPos, transform.rotation );
+            }
+            else
+            {
+                //Pop Bonus
+                GameObject go = Instantiate(Glagla, SpawnPos, transform.rotation);
+            }
+
+            float T = Random.Range(0, 5) ;
+            timerPop = PopRate+ T;
         }
     }
 }
