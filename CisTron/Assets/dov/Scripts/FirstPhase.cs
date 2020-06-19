@@ -8,16 +8,17 @@ public class FirstPhase : MonoBehaviour
     private bool isActive;
     private GameObject theObject;
     public float waitInstance = 0;
-    public int score = 0;
+    public float TempsGame = 25;
+   // public int score = 0;
     public int count = 0;
     List<Collider2D> listCol = new List<Collider2D>();
     List<Vector3> listPos = new List<Vector3>();
-    private bool startGame;
+    public bool startGame;
 
     private void Start()
     {
         isActive = true;
-        startGame = true;
+       // startGame = true;
     }
 
     private void Update()
@@ -25,7 +26,7 @@ public class FirstPhase : MonoBehaviour
 
         if (startGame)
         {
-            StartCoroutine(TimeFirstPhase());
+            
             if (isActive)
             {
                 StartCoroutine(FruitInstance());
@@ -50,7 +51,7 @@ public class FirstPhase : MonoBehaviour
                                     WinStrick();
 
                                 else
-                                    score += 1;
+                                    GameManager.instance.UpdateScore(1);
                             }
                             else
                             {
@@ -58,7 +59,7 @@ public class FirstPhase : MonoBehaviour
                                     LoseStrick();
 
                                 else
-                                    score -= 1;
+                                    GameManager.instance.UpdateScore(-1);
                             }
                             count += 1;
 
@@ -74,18 +75,18 @@ public class FirstPhase : MonoBehaviour
 
     void WinStrick()
     {
-        score += 2;
+        GameManager.instance.UpdateScore(2);
     }
 
     void LoseStrick()
     {
-        score -= 2;
+        GameManager.instance.UpdateScore(-2);
     }
 
     IEnumerator FruitInstance()
     {
         isActive = false;
-        theObject = fruitTab[Random.Range(0, 7)];
+        theObject = fruitTab[Random.Range(0, 6)];
         Vector3 pos = new Vector3(Random.Range(-3, 3), Random.Range(-2, 2), 0);
         
         for (int i = 0; i < listPos.Count; i++)
@@ -102,6 +103,7 @@ public class FirstPhase : MonoBehaviour
             }
         }
         GameObject ob = Instantiate(theObject, pos, Quaternion.identity);
+        ob.transform.parent = GameManager.instance.PanelPhase1.transform;
         listCol.Add(ob.GetComponent<Collider2D>());
         listPos.Add(pos);
         yield return new WaitForSeconds(waitInstance);
@@ -109,10 +111,22 @@ public class FirstPhase : MonoBehaviour
     }
 
 
-    IEnumerator TimeFirstPhase()
+  public  IEnumerator TimeFirstPhase()
     {
-        yield return new WaitForSeconds(25);
+        yield return new WaitForSeconds(TempsGame);
         startGame = false;
+        count = 0;
+        if (GameManager.instance.PlayerOneTurn)
+        {
+            GameManager.instance.ChangePlayer();
+           
+        }
+        else
+        {
+            GameManager.instance.ChangePlayer();
+            GameManager.instance.SetInstruc();
+        }
+        ClearAll();
     }
 
     public void DeleteList(Collider2D collider)
@@ -124,6 +138,16 @@ public class FirstPhase : MonoBehaviour
                 listCol.RemoveAt(i);
                 listPos.RemoveAt(i);
             }
+        }
+    }
+
+    public void ClearAll()
+    {
+        listCol.Clear();
+        listPos.Clear();
+        foreach(Transform child in GameManager.instance.PanelPhase1.transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }

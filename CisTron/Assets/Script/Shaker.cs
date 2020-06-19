@@ -71,15 +71,16 @@ public class Shaker : MonoBehaviour
                 Final = GameManager.instance.scoreP1 * Multip;
             GameManager.instance.UpdateScore((int)Final);
             GameManager.instance.ChangePlayer();
-            StartPhase3();
+          
             }
             else
             {
                 Final = GameManager.instance.scoreP2 * Multip;
             GameManager.instance.UpdateScore((int)Final);
 
-            GameManager.instance.ChangePlayer();
-            GameManager.instance.SetInstruc();
+
+            GameManager.instance.Phase = 4;
+            GameManager.instance.ChangePhase();
             }
 
 

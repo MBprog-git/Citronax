@@ -70,6 +70,9 @@ public class GameManager : MonoBehaviour
         {
             case 1: //Activer Tape-mole
                 PanelPhase1.SetActive(true);
+                GetComponent<FirstPhase>().startGame = true;
+                StartCoroutine(GetComponent<FirstPhase>().TimeFirstPhase());
+                SetTimer(GetComponent<FirstPhase>().TempsGame);
                 break; 
             case 2: //Desactiver Tape-mole  -  Activer Slash
            
@@ -98,11 +101,13 @@ public class GameManager : MonoBehaviour
         PlayerOneTurn = !PlayerOneTurn;
         if (!PlayerOneTurn)
         {
-        panelInstruc.SetActive(true);
         TxtTitre.text = "TOUR 2";
         TxtInstruc.text = "Passer le téléphone au joueur2";
+        panelInstruc.SetActive(true);
+         
             SetTimer(TempsInstru);
         Changer = true;
+            
 
         }
 
@@ -135,8 +140,10 @@ public class GameManager : MonoBehaviour
                 Changer = false;
                 switch (Phase)
                 {
-                    case 1: 
-                        
+                    case 1:
+                        this.gameObject.GetComponent<FirstPhase>().startGame = true;
+                        StartCoroutine(GetComponent<FirstPhase>().TimeFirstPhase());
+                        SetTimer(this.gameObject.GetComponent<FirstPhase>().TempsGame);
                         break;  
                     case 2: 
                         
