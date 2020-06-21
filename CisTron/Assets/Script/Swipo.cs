@@ -38,7 +38,8 @@ public class Swipo : MonoBehaviour
     }
     void Update()
     {
-        if (timer > 0) { 
+        if (timer > 0) {
+            Pop();
             timer -= Time.deltaTime;
             timerBonus -= Time.deltaTime;
             if (Input.touchCount == 1)
@@ -234,35 +235,46 @@ public class Swipo : MonoBehaviour
 
             int Type = Random.Range(0, 5);
             int Bord = Random.Range(0, 2);
+            float SpawnX;
 
             if(Bord == 1)
             {
-               BordX  = -BordX;
+               SpawnX  = -BordX;
+            }
+            else
+            {
+                SpawnX = BordX;
             }
         
             float y = Random.Range(MinY,MaxY);
 
-            Vector2 SpawnPos = new Vector2(BordX, y);
+            Vector2 SpawnPos = new Vector2(SpawnX, y);
             GameObject go;
             if (Type==4 || Type==3)
             {
                 //Pop Malus
                  go = Instantiate(Arsenic,SpawnPos, transform.rotation );
+                if (Bord == 1)
+                {
+                    go.GetComponent<ObjetPhysique>().ForceRota = -go.GetComponent<ObjetPhysique>().ForceRota;
+                    go.GetComponent<ObjetPhysique>().ForcePropuX = -go.GetComponent<ObjetPhysique>().ForcePropuX;
+                }
             }
             else
             {
                 //Pop Bonus
                  go = Instantiate(Glagla, SpawnPos, transform.rotation);
-                go.GetComponent<ObjetPhysique>().IsBonus = true;
+                if (Bord == 1)
+                {
+                    go.GetComponent<ObjetPhysique>().ForceRota = -go.GetComponent<ObjetPhysique>().ForceRota;
+                    go.GetComponent<ObjetPhysique>().ForcePropuX = -go.GetComponent<ObjetPhysique>().ForcePropuX;
+                }
+             
             }
 
-            if (Bord == 1)
-            {
-                go.GetComponent<ObjetPhysique>().ForceRota = -go.GetComponent<ObjetPhysique>().ForceRota;
-                go.GetComponent<ObjetPhysique>().ForcePropuX = -go.GetComponent<ObjetPhysique>().ForcePropuX;
-            }
-            float T = Random.Range(0, 5) ;
-            timerPop = PopRate+ T;
+          
+            float T = Random.Range(0, 3) ;
+            timerPop = PopRate + T;
         }
     }
 }
