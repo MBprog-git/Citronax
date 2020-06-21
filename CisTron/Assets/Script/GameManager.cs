@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
     public Text TxtScoreP1;
     public Text TxtScoreP2;
 
+    FirstPhase FirstPhase;
+    Swipo SecondPhase;
+    Shaker ThirdPhase;
+
     bool once = true;
 
     void Awake()
@@ -42,6 +46,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        FirstPhase = GetComponent<FirstPhase>();
+        SecondPhase = GetComponent<Swipo>();
+        ThirdPhase = GetComponent<Shaker>();
+
         SetInstruc();
         UpdateScore(0);
     }
@@ -70,21 +78,21 @@ public class GameManager : MonoBehaviour
         {
             case 1: //Activer Tape-mole
                 PanelPhase1.SetActive(true);
-                GetComponent<FirstPhase>().startGame = true;
-                StartCoroutine(GetComponent<FirstPhase>().TimeFirstPhase());
-                SetTimer(GetComponent<FirstPhase>().TempsGame);
+              FirstPhase.startGame = true;
+                StartCoroutine(FirstPhase.TimeFirstPhase());
+                SetTimer(FirstPhase.TempsGame);
                 break; 
             case 2: //Desactiver Tape-mole  -  Activer Slash
            
                 PanelPhase2.SetActive(true);
-                SetTimer(this.gameObject.GetComponent<Swipo>().Temps);
-                this.gameObject.GetComponent<Swipo>().StartPhase2();
+                SetTimer(SecondPhase.Temps);
+              SecondPhase.StartPhase2();
                 break; 
             case 3:  //Desactiver Slash - Activer Shake
           
                 PanelPhase3.SetActive(true);
-                this.gameObject.GetComponent<Shaker>().StartPhase3();
-                SetTimer(this.gameObject.GetComponent<Shaker>().Temps);
+               ThirdPhase.StartPhase3();
+                SetTimer(ThirdPhase.Temps);
                 break;
                     case 4: // Désactiver shake - Montrer score
                 PanelPhase3.SetActive(false);
@@ -141,18 +149,18 @@ public class GameManager : MonoBehaviour
                 switch (Phase)
                 {
                     case 1:
-                        this.gameObject.GetComponent<FirstPhase>().startGame = true;
-                        StartCoroutine(GetComponent<FirstPhase>().TimeFirstPhase());
-                        SetTimer(this.gameObject.GetComponent<FirstPhase>().TempsGame);
+                        FirstPhase.startGame = true;
+                        StartCoroutine(FirstPhase.TimeFirstPhase());
+                        SetTimer(FirstPhase.TempsGame);
                         break;  
                     case 2: 
                         
-                        this.gameObject.GetComponent<Swipo>().StartPhase2();
-                        SetTimer(this.gameObject.GetComponent<Swipo>().Temps);
+                       SecondPhase.StartPhase2();
+                        SetTimer(SecondPhase.Temps);
                         break; 
                     case 3:
-                        this.gameObject.GetComponent<Shaker>().StartPhase3();
-                        SetTimer(this.gameObject.GetComponent<Shaker>().Temps);
+                        ThirdPhase.StartPhase3();
+                        SetTimer(ThirdPhase.Temps);
                         break;
 
                 }

@@ -12,12 +12,15 @@ public class Swipo : MonoBehaviour
     public float PopRate;
     float timerPop;
     bool Ingame;
+    public float TempsBonus;
+    float timerBonus;
     public float minimalSwipeDistance;
-    public int AddScoreSwipe;
+    public int AddScoreSwipeBase;
     int count;
-    int transfoUn;
-    int transfoDeux;
-    int transfo3;
+    public int transfoUn;
+    public int transfoDeux;
+    public int transfo3;
+    int AddScore;
     GameObject TransfoActif;
     public GameObject Forme0;
     public GameObject Forme1;
@@ -28,10 +31,16 @@ public class Swipo : MonoBehaviour
     public float BordX;
     public float MaxY;
     public float MinY;
+
+    private void Start()
+    {
+        AddScore = AddScoreSwipeBase;
+    }
     void Update()
     {
         if (timer > 0) { 
             timer -= Time.deltaTime;
+            timerBonus -= Time.deltaTime;
             if (Input.touchCount == 1)
             {
                 var touch = Input.touches[0];
@@ -49,6 +58,9 @@ public class Swipo : MonoBehaviour
                             //si end(+start?) pas dans citron mais que la distance passe dans citron
                             bool EndTouch = false;
                             bool StartTouch = false;
+                            bool CitronTouch = false;
+                            bool BonusTouch = true;
+                            List<GameObject> Bonus = new List<GameObject>();
 
                             RaycastHit2D[] hits2DStart = Physics2D.RaycastAll(startPosition, Vector3.forward);
                             foreach (RaycastHit2D hit2DStart in hits2DStart)
@@ -71,9 +83,13 @@ public class Swipo : MonoBehaviour
                             RaycastHit2D[] hits2D = Physics2D.RaycastAll(startPosition, (endPosition - startPosition).normalized);
                             foreach (RaycastHit2D hit2D in hits2D)
                             {
+                                if (hit2D.collider.tag == "Player")
+                                {
+                                    CitronTouch = true;
+                                }
                                 if (hit2D.collider.tag == "Player" && !EndTouch && !StartTouch)
                                 {
-                                    GameManager.instance.UpdateScore(AddScoreSwipe);
+                                    GameManager.instance.UpdateScore(AddScore);
                                     count++;
                                     if (count >= transfo3)
                                     {
@@ -95,12 +111,41 @@ public class Swipo : MonoBehaviour
                                     }
 
                                 }
+                                if(hit2D.collider.GetComponent<ObjetPhysique>() != null)
+                                {
+                                    Bonus.Add (hit2D.collider.gameObject);
+                                    BonusTouch = true;
+                        
+                                }
+                                
 
                             }
+                            if (BonusTouch && !CitronTouch)
+                            {
+                                for (int i = 0; i< Bonus.Count; i++)
+                                {
+
+
+                                    if (Bonus[i].GetComponent<ObjetPhysique>().IsBonus)
+                                    {
+                                        AddScore = AddScoreSwipeBase * 3;
+                                        timerBonus = TempsBonus;
+                                    }
+                                    else
+                                    {
+                                        GameManager.instance.UpdateScore(-10);
+                                    }
+                                    Destroy(Bonus[i]);
+                                } }
                         }
+                     
 
                         break;
                 }
+            }
+            if (timerBonus < 0)
+            {
+                AddScore = AddScoreSwipeBase;
             }
 
         }
@@ -196,20 +241,26 @@ public class Swipo : MonoBehaviour
             }
         
             float y = Random.Range(MinY,MaxY);
-          
-            
+
             Vector2 SpawnPos = new Vector2(BordX, y);
+            GameObject go;
             if (Type==4 || Type==3)
             {
                 //Pop Malus
-                GameObject go = Instantiate(Arsenic,SpawnPos, transform.rotation );
+                 go = Instantiate(Arsenic,SpawnPos, transform.rotation );
             }
             else
             {
                 //Pop Bonus
-                GameObject go = Instantiate(Glagla, SpawnPos, transform.rotation);
+                 go = Instantiate(Glagla, SpawnPos, transform.rotation);
+                go.GetComponent<ObjetPhysique>().IsBonus = true;
             }
 
+            if (Bord == 1)
+            {
+                go.GetComponent<ObjetPhysique>().ForceRota = -go.GetComponent<ObjetPhysique>().ForceRota;
+                go.GetComponent<ObjetPhysique>().ForcePropuX = -go.GetComponent<ObjetPhysique>().ForcePropuX;
+            }
             float T = Random.Range(0, 5) ;
             timerPop = PopRate+ T;
         }

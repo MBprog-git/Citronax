@@ -8,9 +8,13 @@ public class ObjetPhysique : MonoBehaviour
    public float ForceRota;
     public float ForcePropuX;
     public float ForcePropuY;
+   public  bool IsBonus;
+
+   
     // Start is called before the first frame update
     void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
 
         rb.AddForce(new Vector2(ForcePropuX, ForcePropuY));
