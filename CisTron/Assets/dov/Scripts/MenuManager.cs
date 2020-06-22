@@ -18,6 +18,11 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void Click()
+    {
+        FindObjectOfType<AudioManager>().Play("Button");
+    }
+
     IEnumerator PopUp()
     {
         textPopUp.enabled = true;
