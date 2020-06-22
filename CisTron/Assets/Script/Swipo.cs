@@ -19,13 +19,13 @@ public class Swipo : MonoBehaviour
     int count;
     public int transfoUn;
     public int transfoDeux;
-    public int transfo3;
+    //public int transfo3;
     int AddScore;
     GameObject TransfoActif;
     public GameObject Forme0;
     public GameObject Forme1;
     public GameObject Forme2;
-    public GameObject Forme3;
+   // public GameObject Forme3;
     public GameObject Glagla;
     public GameObject Arsenic;
     public float BordX;
@@ -92,13 +92,7 @@ public class Swipo : MonoBehaviour
                                 {
                                     GameManager.instance.UpdateScore(AddScore);
                                     count++;
-                                    if (count >= transfo3)
-                                    {
-                                        TransfoActif.SetActive(false);
-                                        TransfoActif = Forme3;
-                                        TransfoActif.SetActive(true);
-
-                                    }else if (count >= transfoDeux)
+                                 if (count >= transfoDeux)
                                     {
                                         TransfoActif.SetActive(false);
                                         TransfoActif = Forme2;

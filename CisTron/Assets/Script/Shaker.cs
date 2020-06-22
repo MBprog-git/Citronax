@@ -14,7 +14,7 @@ public class Shaker : MonoBehaviour
     bool ingame;
 
     float Multip;
- 
+   public GameObject Bouteille;
     void Update()
     {
         if (timer > 0)
@@ -59,12 +59,13 @@ public class Shaker : MonoBehaviour
     {
         timer = Temps;
         ingame = true;
+        Bouteille.SetActive(true);
     }
 
     void EndPhase3()
     {
         ingame = false;
-
+        Bouteille.SetActive(false);
             float Final;
             if (GameManager.instance.PlayerOneTurn)
             {
