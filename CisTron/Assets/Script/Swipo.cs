@@ -93,7 +93,12 @@ public class Swipo : MonoBehaviour
                                 {
                                     GameManager.instance.UpdateScore(AddScore);
                                     count++;
-                                   Slash.transform.rotation = Quaternion.LookRotation((endPosition - startPosition));
+
+                                  Vector2  _dir = endPosition - startPosition;
+                                    float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+                                    Slash.transform.rotation = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
+                                    
+
                                     if (count >= transfoDeux)
                                     {
                                         TransfoActif.SetActive(false);
