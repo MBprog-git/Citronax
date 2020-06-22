@@ -94,11 +94,11 @@ public class Swipo : MonoBehaviour
                                     GameManager.instance.UpdateScore(AddScore);
                                     count++;
                                     Vector2 _dir = endPosition - startPosition;
-                                    Vector2  Mid = startPosition + (endPosition - startPosition) / 2; ;
+                                    Vector2 Mid = startPosition + (endPosition - startPosition) / 2; ;
                                     float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
 
-                                    Instantiate(Slash, Mid , Quaternion.AngleAxis(angle - 45f, Vector3.forward));
-                                    
+                                    Instantiate(Slash, Mid, Quaternion.AngleAxis(angle - 45f, Vector3.forward));
+
 
                                     if (count >= transfoDeux)
                                     {
@@ -118,7 +118,11 @@ public class Swipo : MonoBehaviour
                                 {
                                     Bonus.Add (hit2D.collider.gameObject);
                                     BonusTouch = true;
-                        
+                                    Vector2 _dir = endPosition - startPosition;
+                                    Vector2 Mid = startPosition + (endPosition - startPosition) / 2; ;
+                                    float angle = Mathf.Atan2(_dir.y, _dir.x) * Mathf.Rad2Deg;
+
+                                    Instantiate(Slash, Mid, Quaternion.AngleAxis(angle - 45f, Vector3.forward));
                                 }
                                 
 
