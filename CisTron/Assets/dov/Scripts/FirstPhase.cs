@@ -53,6 +53,14 @@ public class FirstPhase : MonoBehaviour
                                 else
                                     GameManager.instance.UpdateScore(1);
                             }
+                            else if (listCol[i].tag == "RainbowCitron")
+                            {
+                                if (count >= 5)
+                                    GameManager.instance.UpdateScore(4);
+
+                                else
+                                    GameManager.instance.UpdateScore(2);
+                            }
                             else
                             {
                                 if (count >= 5)
@@ -87,7 +95,7 @@ public class FirstPhase : MonoBehaviour
     {
         isActive = false;
         theObject = fruitTab[Random.Range(0, 6)];
-        Vector3 pos = new Vector3(Random.Range(-3, 3), Random.Range(-2, 2), 0);
+        Vector3 pos = new Vector3(Random.Range(-5, 6), Random.Range(4, 4), 0);
         
         for (int i = 0; i < listPos.Count; i++)
         {

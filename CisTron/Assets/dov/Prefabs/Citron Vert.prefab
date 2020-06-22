@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5651004308377579359}
   - component: {fileID: 9069997480425480693}
   - component: {fileID: 7590518879969529711}
+  - component: {fileID: 1607032722625464885}
   m_Layer: 0
   m_Name: Citron Vert
   m_TagString: CitronVert
@@ -121,4 +122,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec1eb3305feeac4883ffa35e07f222c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 3
+--- !u!50 &1607032722625464885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191394268019453823}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
