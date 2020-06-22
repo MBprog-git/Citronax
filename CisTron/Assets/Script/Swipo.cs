@@ -31,6 +31,7 @@ public class Swipo : MonoBehaviour
     public float BordX;
     public float MaxY;
     public float MinY;
+    public GameObject Slash;
 
     private void Start()
     {
@@ -92,7 +93,8 @@ public class Swipo : MonoBehaviour
                                 {
                                     GameManager.instance.UpdateScore(AddScore);
                                     count++;
-                                 if (count >= transfoDeux)
+                                   Slash.transform.rotation = Quaternion.LookRotation((endPosition - startPosition));
+                                    if (count >= transfoDeux)
                                     {
                                         TransfoActif.SetActive(false);
                                         TransfoActif = Forme2;
