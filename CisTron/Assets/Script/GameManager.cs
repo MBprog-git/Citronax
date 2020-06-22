@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
                 break;
                     case 4: // Désactiver shake - Montrer score
                 PanelPhase3.SetActive(false);
+                FindObjectOfType<AudioManager>().Play("Score");
                 CalculFinal();
                 break;     
   
@@ -109,14 +110,13 @@ public class GameManager : MonoBehaviour
         PlayerOneTurn = !PlayerOneTurn;
         if (!PlayerOneTurn)
         {
-        TxtTitre.text = "TOUR 2";
-        TxtInstruc.text = "Passer le téléphone au joueur2";
-        panelInstruc.SetActive(true);
-         
-            SetTimer(TempsInstru);
-        Changer = true;
-            
+            FindObjectOfType<AudioManager>().Play("FinJ1");
+            TxtTitre.text = "TOUR 2";
+            TxtInstruc.text = "Passer le téléphone au joueur2";
+            panelInstruc.SetActive(true);
 
+            SetTimer(TempsInstru);
+            Changer = true;
         }
 
         UpdateScore(0);

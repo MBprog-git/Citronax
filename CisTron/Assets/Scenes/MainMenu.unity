@@ -1125,7 +1125,7 @@ MonoBehaviour:
   sounds:
   - name: Button
     clip: {fileID: 8300000, guid: 5bf227341d788c54cafdff4aec4a2ec5, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   musics:
   - name: BeaStars
     clip: {fileID: 8300000, guid: 88b4eed8726aee34b97244463722b9a4, type: 3}
-    volume: 0.097
+    volume: 0.1
     pitch: 1
     loop: 1
     playOnAwake: 1

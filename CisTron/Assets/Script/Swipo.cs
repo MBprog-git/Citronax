@@ -137,10 +137,12 @@ public class Swipo : MonoBehaviour
                                     {
                                         AddScore = AddScoreSwipeBase * 3;
                                         timerBonus = TempsBonus;
+                                        FindObjectOfType<AudioManager>().Play("Glacon");
                                     }
                                     else
                                     {
                                         GameManager.instance.UpdateScore(-10);
+                                        FindObjectOfType<AudioManager>().Play("Cyanure");
                                     }
                                     Destroy(Bonus[i]);
                                 } }

@@ -583,57 +583,57 @@ MonoBehaviour:
   _toggleWhichChanges: {fileID: 0}
   sounds:
   - name: Slash
-    clip: {fileID: 8300000, guid: bb178fe2e13003c40accba8f75ce1217, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 70f8a7cee7db2e041a9106b9008f34f7, type: 3}
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Button
     clip: {fileID: 8300000, guid: 5bf227341d788c54cafdff4aec4a2ec5, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: BonFruit
     clip: {fileID: 8300000, guid: 1dbeb7d87a5f9b2418a86b0a51c4d2cb, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: MauvaisFruit
     clip: {fileID: 8300000, guid: a0d7b7aff6968a34fa848208852fe0fd, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Glacon
     clip: {fileID: 8300000, guid: 66920df640fe07f41b596363c702411d, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Cyanure
     clip: {fileID: 8300000, guid: e2bcf32b2c79d7d4f8593d12a6530e65, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Score
     clip: {fileID: 8300000, guid: 2892c61e64c0cc84597368218556606a, type: 3}
-    volume: 0.5
+    volume: 0.2
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: FinJ1
     clip: {fileID: 8300000, guid: bd3f72ec83f8f91468bb70684502ce68, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -1114,7 +1114,7 @@ MonoBehaviour:
   musics:
   - name: Beastars
     clip: {fileID: 8300000, guid: 88b4eed8726aee34b97244463722b9a4, type: 3}
-    volume: 0.2
+    volume: 0.1
     pitch: 1
     loop: 1
     playOnAwake: 1

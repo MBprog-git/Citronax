@@ -7,7 +7,7 @@ public class SlashEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        FindObjectOfType<AudioManager>().Play("Slash");
     }
 
     // Update is called once per frame
