@@ -11,7 +11,9 @@ public class SlashEffect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void LateUpdate()
+    
+   
     {
         if (!GetComponent<Animation>().isPlaying)
         {

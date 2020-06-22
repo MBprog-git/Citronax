@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1730364552826804580}
   - component: {fileID: 1730364552826804579}
   - component: {fileID: 5396275883096358567}
-  - component: {fileID: 2108132268712634982}
+  - component: {fileID: 4378498734142650097}
+  - component: {fileID: 6217995700765053203}
   m_Layer: 0
   m_Name: Slash
   m_TagString: Untagged
@@ -96,7 +97,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3beec012d9f944448b17cf46b38abdcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &2108132268712634982
+--- !u!111 &4378498734142650097
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1730364552826804578}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 417f70cbae36a3a44920755126a33ba0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 417f70cbae36a3a44920755126a33ba0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &6217995700765053203
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
