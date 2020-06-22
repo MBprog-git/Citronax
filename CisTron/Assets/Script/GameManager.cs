@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
 
@@ -26,12 +26,12 @@ public class GameManager : MonoBehaviour
     public GameObject PanelPhase3;
     public GameObject PanelPhaseFinal;
     public GameObject panelInstruc;
-    public Text TxtTitre;
-    public Text TxtInstruc;
-    public Text TxtFinalTitre;
-    public Text TxtFinal;
-    public Text TxtScoreP1;
-    public Text TxtScoreP2;
+    public TextMeshProUGUI TxtTitre;
+    public TextMeshProUGUI TxtInstruc;
+    public TextMeshProUGUI TxtFinalTitre;
+    public TextMeshProUGUI TxtFinal;
+    public TextMeshProUGUI TxtScoreP1;
+    public TextMeshProUGUI TxtScoreP2;
 
     FirstPhase FirstPhase;
     Swipo SecondPhase;
@@ -75,6 +75,10 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(nameScene);
      
+    }
+    public void PassInstruct()
+    {
+        timer = 0;
     }
 
     public void ChangePhase()
@@ -132,6 +136,8 @@ public class GameManager : MonoBehaviour
 
         UpdateScore(0);
     }
+
+    
 
     public void SetTimer(float Temps)
     {
