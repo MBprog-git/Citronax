@@ -52,6 +52,8 @@ public class FirstPhase : MonoBehaviour
 
                                 else
                                     GameManager.instance.UpdateScore(1);
+
+                                FindObjectOfType<AudioManager>().Play("BonFruit");
                             }
                             else if (listCol[i].tag == "RainbowCitron")
                             {
@@ -60,6 +62,8 @@ public class FirstPhase : MonoBehaviour
 
                                 else
                                     GameManager.instance.UpdateScore(2);
+
+                                FindObjectOfType<AudioManager>().Play("BonFruit");
                             }
                             else
                             {
@@ -68,10 +72,11 @@ public class FirstPhase : MonoBehaviour
 
                                 else
                                     GameManager.instance.UpdateScore(-1);
+
+                                FindObjectOfType<AudioManager>().Play("MauvaisFruit");
                             }
                             count += 1;
 
-                            FindObjectOfType<AudioManager>().Play("Collect");
                             Destroy(listCol[i].gameObject);
                             listCol.RemoveAt(i);
                             //listPos.RemoveAt(i);
