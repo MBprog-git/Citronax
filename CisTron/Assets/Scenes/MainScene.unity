@@ -583,7 +583,7 @@ MonoBehaviour:
   _toggleWhichChanges: {fileID: 0}
   sounds:
   - name: Slash
-    clip: {fileID: 8300000, guid: 74f60971aacdebb4ab749c3b6155a7c8, type: 3}
+    clip: {fileID: 8300000, guid: bb178fe2e13003c40accba8f75ce1217, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -596,8 +596,8 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: Collect
-    clip: {fileID: 8300000, guid: ca404e5729c3daa4db99d943366e2b6c, type: 3}
+  - name: BonFruit
+    clip: {fileID: 8300000, guid: 1dbeb7d87a5f9b2418a86b0a51c4d2cb, type: 3}
     volume: 0.5
     pitch: 1
     loop: 0
@@ -2399,7 +2399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOneTurn: 1
-  Phase: 0
+  Phase: 1
   TempsInstru: 7.5
   scoreP1: 0
   scoreP2: 0
