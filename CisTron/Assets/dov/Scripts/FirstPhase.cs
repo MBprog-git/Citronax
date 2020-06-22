@@ -12,7 +12,7 @@ public class FirstPhase : MonoBehaviour
    // public int score = 0;
     public int count = 0;
     List<Collider2D> listCol = new List<Collider2D>();
-    List<Vector3> listPos = new List<Vector3>();
+    //List<Vector3> listPos = new List<Vector3>();
     public bool startGame;
 
     private void Start()
@@ -73,7 +73,7 @@ public class FirstPhase : MonoBehaviour
 
                             Destroy(listCol[i].gameObject);
                             listCol.RemoveAt(i);
-                            listPos.RemoveAt(i);
+                            //listPos.RemoveAt(i);
                         }
                     }
                 }
@@ -94,26 +94,26 @@ public class FirstPhase : MonoBehaviour
     IEnumerator FruitInstance()
     {
         isActive = false;
-        theObject = fruitTab[Random.Range(0, 6)];
+        theObject = fruitTab[Random.Range(0, 12)];
         Vector3 pos = new Vector3(Random.Range(-5, 6), Random.Range(4, 4), 0);
         
-        for (int i = 0; i < listPos.Count; i++)
-        {
-            if (listCol[i] == null)
-            {
-                listCol.RemoveAt(i);
-                listPos.RemoveAt(i);
-            }
-            if (pos == listPos[i])
-            {
-                isActive = true;
-                yield break;
-            }
-        }
+        //for (int i = 0; i < listPos.Count; i++)
+        //{
+        //    if (listCol[i] == null)
+        //    {
+        //        listCol.RemoveAt(i);
+        //        listPos.RemoveAt(i);
+        //    }
+        //    if (pos == listPos[i])
+        //    {
+        //        isActive = true;
+        //        yield break;
+        //    }
+        //}
         GameObject ob = Instantiate(theObject, pos, Quaternion.identity);
         ob.transform.parent = GameManager.instance.PanelPhase1.transform;
         listCol.Add(ob.GetComponent<Collider2D>());
-        listPos.Add(pos);
+        //listPos.Add(pos);
         yield return new WaitForSeconds(waitInstance);
         isActive = true;
     }
@@ -144,7 +144,7 @@ public class FirstPhase : MonoBehaviour
             if (listCol[i] == collider)
             {
                 listCol.RemoveAt(i);
-                listPos.RemoveAt(i);
+                //listPos.RemoveAt(i);
             }
         }
     }
@@ -152,7 +152,7 @@ public class FirstPhase : MonoBehaviour
     public void ClearAll()
     {
         listCol.Clear();
-        listPos.Clear();
+        //listPos.Clear();
         foreach(Transform child in GameManager.instance.PanelPhase1.transform)
         {
             Destroy(child.gameObject);

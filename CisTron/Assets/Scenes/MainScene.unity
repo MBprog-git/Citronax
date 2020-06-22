@@ -234,8 +234,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 119.11, y: 30.899994}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 133.78, y: 30.899994}
+  m_SizeDelta: {x: 229.34, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &173690839
 MonoBehaviour:
@@ -2369,13 +2369,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitTab:
   - {fileID: 1191394268019453823, guid: 1d5820ccc124f994588d6ee4ab170241, type: 3}
+  - {fileID: 1191394268019453823, guid: 1d5820ccc124f994588d6ee4ab170241, type: 3}
+  - {fileID: 1191394268019453823, guid: 1d5820ccc124f994588d6ee4ab170241, type: 3}
+  - {fileID: 7436307672498225367, guid: 766afb7bc7720fd47bf2b91394800696, type: 3}
   - {fileID: 7436307672498225367, guid: 766afb7bc7720fd47bf2b91394800696, type: 3}
   - {fileID: 6792986462809565467, guid: d6ace4c1cdfa63a49a958598b3d80be6, type: 3}
+  - {fileID: 6792986462809565467, guid: d6ace4c1cdfa63a49a958598b3d80be6, type: 3}
+  - {fileID: 6735395452453056748, guid: cedf42c16e492484ca078991f41c9d26, type: 3}
   - {fileID: 6735395452453056748, guid: cedf42c16e492484ca078991f41c9d26, type: 3}
   - {fileID: 558578033032365312, guid: 7790557276da448419261b3b14dfab90, type: 3}
-  - {fileID: 1191394268019453823, guid: 1d5820ccc124f994588d6ee4ab170241, type: 3}
-  waitInstance: 0.75
-  TempsGame: 5
+  - {fileID: 558578033032365312, guid: 7790557276da448419261b3b14dfab90, type: 3}
+  - {fileID: 558578033032365312, guid: 12200fea86d59ab41bcc3ebedaa6f07a, type: 3}
+  waitInstance: 0.3
+  TempsGame: 25
   count: 0
   startGame: 0
 --- !u!1 &1830818320
