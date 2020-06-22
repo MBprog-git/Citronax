@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     Shaker ThirdPhase;
 
     bool once = true;
+    int appar1=0;
+    int appar2=0;
+    bool Finished;
 
     void Awake()
     {
@@ -53,10 +56,15 @@ public class GameManager : MonoBehaviour
         SetInstruc();
         UpdateScore(0);
     }
-    void Update()
+    private void FixedUpdate()
     {
-        UpdateTimer();   
         
+    
+        UpdateTimer();
+        if (Finished)
+        {
+            CalculFinal();
+        }
 
     }
     public void doExitGame()
@@ -97,7 +105,10 @@ public class GameManager : MonoBehaviour
                     case 4: // Désactiver shake - Montrer score
                 PanelPhase3.SetActive(false);
                 FindObjectOfType<AudioManager>().Play("Score");
-                CalculFinal();
+                Finished = true;
+                TxtScore.gameObject.SetActive(false);
+                TxtTimer.gameObject.SetActive(false);
+                PanelPhaseFinal.SetActive(true);
                 break;     
   
                 
@@ -130,7 +141,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateTimer()
     {
-        timer -= Time.deltaTime;
+        timer -= Time.fixedDeltaTime;
         if (timer > 0)
         {
         TxtTimer.text = (int)timer + " s";
@@ -214,24 +225,40 @@ public class GameManager : MonoBehaviour
 
     void CalculFinal()
     {
-        if (scoreP1 == scoreP2)
+        if (scoreP1 != appar1)
         {
-            TxtFinalTitre.text = "Egalité...";
-
+            appar1++;
         }
-        else if (scoreP1> scoreP2)
+            
+            if(scoreP2 != appar2)
         {
-            TxtFinalTitre.text = "Victoire du joueur 1!";
-
-        }else
-        {
-            TxtFinalTitre.text = "Victoire du joueur 2!";
-
+            appar2++;
         }
-        TxtScoreP1.text = "Joueur 1 : "+scoreP1;
-        TxtScoreP2.text = "Joueur 2 : "+scoreP2;
-        TxtScore.gameObject.SetActive(false);
-        TxtTimer.gameObject.SetActive(false);
-        PanelPhaseFinal.SetActive(true);
+
+
+
+        if (scoreP2 == appar2 && scoreP1 == appar1)
+        {
+
+            if (scoreP1 == scoreP2)
+            {
+                TxtFinalTitre.text = "Egalité...";
+
+            }
+            else if (scoreP1 > scoreP2)
+            {
+                TxtFinalTitre.text = "Victoire du joueur 1!";
+
+            }
+            else
+            {
+                TxtFinalTitre.text = "Victoire du joueur 2!";
+
+            }
+        }
+
+        TxtScoreP1.text = "Joueur 1 : "+appar1;
+        TxtScoreP2.text = "Joueur 2 : "+appar2;
+        
     }
 }
