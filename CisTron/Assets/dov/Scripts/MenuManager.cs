@@ -6,11 +6,10 @@ using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
-    public TextMeshProUGUI textPopUp;
     
     public void Play()
     {
-        StartCoroutine(PopUp());
+        SceneManager.LoadScene("MainScene");
     }
 
     public void Quit()
@@ -23,10 +22,4 @@ public class MenuManager : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Button");
     }
 
-    IEnumerator PopUp()
-    {
-        textPopUp.enabled = true;
-        yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("MainScene");
-    }
 }
