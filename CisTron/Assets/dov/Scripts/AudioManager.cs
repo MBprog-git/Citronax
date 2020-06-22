@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
     public Toggle _toggleWhichChanges;
+    public Sound[] sounds;
     int _volumeToggle = 1;
     public static AudioManager Instance { get; private set; }
    

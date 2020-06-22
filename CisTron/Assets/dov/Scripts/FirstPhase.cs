@@ -71,6 +71,7 @@ public class FirstPhase : MonoBehaviour
                             }
                             count += 1;
 
+                            FindObjectOfType<AudioManager>().Play("Collect");
                             Destroy(listCol[i].gameObject);
                             listCol.RemoveAt(i);
                             //listPos.RemoveAt(i);
