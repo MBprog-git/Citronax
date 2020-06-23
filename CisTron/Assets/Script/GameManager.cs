@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TxtTitre;
     public TextMeshProUGUI TxtInstruc;
     public TextMeshProUGUI TxtFinalTitre;
-    public TextMeshProUGUI TxtFinal;
+  //  public TextMeshProUGUI TxtFinal;
     public TextMeshProUGUI TxtScoreP1;
     public TextMeshProUGUI TxtScoreP2;
 
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("FinJ1");
             TxtTitre.text = "TOUR 2";
-            TxtInstruc.text = "Passer le téléphone au joueur2";
+            TxtInstruc.text = "Au tour du joueur deux!";
             panelInstruc.SetActive(true);
 
             SetTimer(TempsInstru);
@@ -231,24 +231,24 @@ public class GameManager : MonoBehaviour
 
     void CalculFinal()
     {
-        if (scoreP1 != appar1)
+        if (scoreP1 > appar1)
         {
             appar1++;
         }
             
-            if(scoreP2 != appar2)
+            if(scoreP2 > appar2)
         {
             appar2++;
         }
 
 
 
-        if (scoreP2 == appar2 && scoreP1 == appar1)
+        if (scoreP2 <= appar2 && scoreP1 <= appar1)
         {
 
-            if (scoreP1 == scoreP2)
+            if ((scoreP1 == scoreP2) || (scoreP1<0 && scoreP2<0))
             {
-                TxtFinalTitre.text = "Egalité...";
+                TxtFinalTitre.text = "Match nul...";
 
             }
             else if (scoreP1 > scoreP2)
@@ -263,8 +263,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        TxtScoreP1.text = "Joueur 1 : "+appar1;
-        TxtScoreP2.text = "Joueur 2 : "+appar2;
+        TxtScoreP1.text = "Joueur 1 :\n"+appar1;
+        TxtScoreP2.text = "Joueur 2 :\n"+appar2;
         
     }
 }
