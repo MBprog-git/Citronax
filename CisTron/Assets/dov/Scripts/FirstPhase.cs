@@ -10,7 +10,8 @@ public class FirstPhase : MonoBehaviour
     public float waitInstance = 0;
     public float TempsGame = 25;
    // public int score = 0;
-    public int count = 0;
+    public int countWin = 0;
+    public int countLose = 0;
     List<Collider2D> listCol = new List<Collider2D>();
     //List<Vector3> listPos = new List<Vector3>();
     public bool startGame;
@@ -48,34 +49,36 @@ public class FirstPhase : MonoBehaviour
                             if (listCol[i].tag == "CitronVert")
                             {
                                 FindObjectOfType<AudioManager>().Play("BonFruit");
-                                if (count >= 5)
+                                if (countWin >= 5)
                                     WinStrick();
 
                                 else
                                     GameManager.instance.UpdateScore(1);
-
+                                countWin += 1;
+                                countLose = 0;
                             }
                             else if (listCol[i].tag == "RainbowCitron")
                             {
                                 FindObjectOfType<AudioManager>().Play("BonFruit");
-                                if (count >= 5)
-                                    GameManager.instance.UpdateScore(4);
+                                if (countWin >= 5)
+                                    GameManager.instance.UpdateScore(8);
 
                                 else
-                                    GameManager.instance.UpdateScore(2);
-
+                                    GameManager.instance.UpdateScore(4);
+                                countWin += 1;
+                                countLose = 0;
                             }
                             else
                             {
                                 FindObjectOfType<AudioManager>().Play("MauvaisFruit");
-                                if (count >= 5)
+                                if (countLose >= 5)
                                     LoseStrick();
 
                                 else
                                     GameManager.instance.UpdateScore(-1);
-
+                                countLose += 1;
+                                countWin = 0;
                             }
-                            count += 1;
 
                             Destroy(listCol[i].gameObject);
                             listCol.RemoveAt(i);
@@ -129,7 +132,8 @@ public class FirstPhase : MonoBehaviour
     {
         yield return new WaitForSeconds(TempsGame);
         startGame = false;
-        count = 0;
+        countWin = 0;
+        countLose = 0;
         if (GameManager.instance.PlayerOneTurn)
         {
             GameManager.instance.ChangePlayer();
