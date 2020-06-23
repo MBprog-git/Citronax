@@ -16,6 +16,9 @@ public class FirstPhase : MonoBehaviour
     //List<Vector3> listPos = new List<Vector3>();
     public bool startGame;
 
+    public GameObject panelWinStrick;
+    public GameObject panelLoseStrick;
+
     private void Start()
     {
         isActive = true;
@@ -50,34 +53,46 @@ public class FirstPhase : MonoBehaviour
                             {
                                 FindObjectOfType<AudioManager>().Play("BonFruit");
                                 if (countWin >= 5)
+                                {
                                     WinStrick();
+                                    panelWinStrick.SetActive(true);
+                                }
 
                                 else
                                     GameManager.instance.UpdateScore(1);
                                 countWin += 1;
                                 countLose = 0;
+                                panelLoseStrick.SetActive(false);
                             }
                             else if (listCol[i].tag == "RainbowCitron")
                             {
                                 FindObjectOfType<AudioManager>().Play("BonFruit");
                                 if (countWin >= 5)
+                                {
                                     GameManager.instance.UpdateScore(8);
+                                    panelWinStrick.SetActive(true);
+                                }
 
                                 else
                                     GameManager.instance.UpdateScore(4);
                                 countWin += 1;
                                 countLose = 0;
+                                panelLoseStrick.SetActive(false);
                             }
                             else
                             {
                                 FindObjectOfType<AudioManager>().Play("MauvaisFruit");
                                 if (countLose >= 5)
+                                {
                                     LoseStrick();
+                                    panelLoseStrick.SetActive(true);
+                                }
 
                                 else
                                     GameManager.instance.UpdateScore(-1);
                                 countLose += 1;
                                 countWin = 0;
+                                panelWinStrick.SetActive(false);
                             }
 
                             Destroy(listCol[i].gameObject);
