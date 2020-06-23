@@ -1148,8 +1148,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Shaker time est un jeu multijoueur ou l\u2019objectif est d\u2019amasse
-    le plus de point pour gagner ! 3 jeux vous mettront a l\u2019epreuve"
+  m_text: "Shaker time est un jeu multijoueur ou l\u2019objectif est d\u2019amasser
+    le plus de points pour gagner ! 3 jeux vous mettront au challenge"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa, type: 2}
   m_sharedMaterial: {fileID: 8606600674485652798, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa,
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 277845615}
-    characterCount: 125
+    characterCount: 128
     spriteCount: 0
     spaceCount: 22
     wordCount: 22
@@ -1764,8 +1764,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A la fin de chaque phase le J1 doit donner le telephone au J2 pour qu\u2019il
-    joue son tour. Le score totale sera donne a la fin"
+  m_text: "A la fin de chaque phase le J1 doit donner le portable au J2 pour qu\u2019il
+    joue son tour. Le score totale sera transmis a la fin de la partie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa, type: 2}
   m_sharedMaterial: {fileID: 8606600674485652798, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa,
@@ -1835,10 +1835,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 485392046}
-    characterCount: 123
+    characterCount: 138
     spriteCount: 0
-    spaceCount: 26
-    wordCount: 27
+    spaceCount: 29
+    wordCount: 30
     linkCount: 0
     lineCount: 6
     pageCount: 1
@@ -3682,8 +3682,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dans le dernier jeu plus vous allez shaker fort votre telephone plus votre
-    score sera multiplie
+  m_text: Dans le dernier jeu plus vous allez shaker fort votre portable plus votre
+    score augmentera
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa, type: 2}
   m_sharedMaterial: {fileID: 8606600674485652798, guid: 64b1da44d507aec4fa66ad0fb9f4f6fa,
@@ -3753,10 +3753,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1067698655}
-    characterCount: 95
+    characterCount: 90
     spriteCount: 0
-    spaceCount: 15
-    wordCount: 16
+    spaceCount: 14
+    wordCount: 15
     linkCount: 0
     lineCount: 4
     pageCount: 1
