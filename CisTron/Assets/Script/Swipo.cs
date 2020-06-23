@@ -106,7 +106,7 @@ public class Swipo : MonoBehaviour
                                         TransfoActif = Forme2;
                                         TransfoActif.SetActive(true);
                                     }
-                                    else if (count >= transfoUn && TransfoActif != Forme1)
+                                    else if (count >= transfoUn && TransfoActif != Forme1 && count < transfoDeux)
                                     {
                                         TransfoActif.SetActive(false);
                                         TransfoActif = Forme1;
