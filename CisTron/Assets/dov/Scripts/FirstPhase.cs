@@ -47,33 +47,33 @@ public class FirstPhase : MonoBehaviour
                         {
                             if (listCol[i].tag == "CitronVert")
                             {
+                                FindObjectOfType<AudioManager>().Play("BonFruit");
                                 if (count >= 5)
                                     WinStrick();
 
                                 else
                                     GameManager.instance.UpdateScore(1);
 
-                                FindObjectOfType<AudioManager>().Play("BonFruit");
                             }
                             else if (listCol[i].tag == "RainbowCitron")
                             {
+                                FindObjectOfType<AudioManager>().Play("BonFruit");
                                 if (count >= 5)
                                     GameManager.instance.UpdateScore(4);
 
                                 else
                                     GameManager.instance.UpdateScore(2);
 
-                                FindObjectOfType<AudioManager>().Play("BonFruit");
                             }
                             else
                             {
+                                FindObjectOfType<AudioManager>().Play("MauvaisFruit");
                                 if (count >= 5)
                                     LoseStrick();
 
                                 else
                                     GameManager.instance.UpdateScore(-1);
 
-                                FindObjectOfType<AudioManager>().Play("MauvaisFruit");
                             }
                             count += 1;
 

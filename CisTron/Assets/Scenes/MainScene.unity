@@ -313,7 +313,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -56, y: -20.22999}
+  m_AnchoredPosition: {x: -121, y: -32}
   m_SizeDelta: {x: 377.47998, y: 362.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &274715001
@@ -884,8 +884,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -5.86, y: -73.18}
-  m_SizeDelta: {x: 198.95, y: 111.36}
+  m_AnchoredPosition: {x: -6.3, y: -70.6}
+  m_SizeDelta: {x: 201.76, y: 111.36}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &633678049
 MonoBehaviour:
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   _toggleWhichChanges: {fileID: 0}
   musics:
   - name: Beastars
-    clip: {fileID: 8300000, guid: 88b4eed8726aee34b97244463722b9a4, type: 3}
+    clip: {fileID: 8300000, guid: a200e27d678d07b4fb3333b766fd9a04, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
@@ -1514,7 +1514,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 104, y: -20.23}
+  m_AnchoredPosition: {x: 162.14998, y: -26.889994}
   m_SizeDelta: {x: 371.71, y: 356.94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &972940398
@@ -1726,7 +1726,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -78.20001, y: -47.94}
+  m_AnchoredPosition: {x: -143.20007, y: -59.710014}
   m_SizeDelta: {x: 131.6, y: 93.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1285072613
@@ -3101,7 +3101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 83.350006, y: -47.94}
+  m_AnchoredPosition: {x: 141.5, y: -54.6}
   m_SizeDelta: {x: 131.6, y: 93.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874598313
@@ -3621,7 +3621,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 1.25
+  m_padding: 0
   m_canvasRenderer: {fileID: 2014388755}
   m_TextComponent: {fileID: 633678049}
   m_materialReferenceIndex: 1

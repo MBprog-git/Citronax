@@ -3448,7 +3448,7 @@ MonoBehaviour:
   _toggleWhichChanges: {fileID: 1335363352}
   musics:
   - name: BeaStars
-    clip: {fileID: 8300000, guid: 88b4eed8726aee34b97244463722b9a4, type: 3}
+    clip: {fileID: 8300000, guid: a200e27d678d07b4fb3333b766fd9a04, type: 3}
     volume: 0.1
     pitch: 1
     loop: 1
