@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
             case 1:
 
                 TxtTitre.text = "Time To Harvest";
-                TxtInstruc.text = "Choisis les meilleurs citrons vert pour ton mojito, tu n'oserais pas mettre AUTRE CHOSE que des citrons vert n'est ce pas ?"; 
+                TxtInstruc.text = "Choisis les meilleurs citrons vert pour ton mojito, n'ose pas mettre autre chose que des citrons vert"; 
                 panelInstruc.SetActive(true);
          
                 break;    
