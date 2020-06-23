@@ -176,11 +176,11 @@ public class FirstPhase : MonoBehaviour
 
     public void ClearAll()
     {
-        listCol.Clear();
         //listPos.Clear();
-        foreach(Transform child in GameManager.instance.PanelPhase1.transform)
+        foreach(Collider2D child in listCol)
         {
             Destroy(child.gameObject);
         }
+        listCol.Clear();
     }
 }
