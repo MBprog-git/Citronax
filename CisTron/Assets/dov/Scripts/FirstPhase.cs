@@ -149,6 +149,9 @@ public class FirstPhase : MonoBehaviour
         startGame = false;
         countWin = 0;
         countLose = 0;
+        panelLoseStrick.SetActive(false);
+        panelWinStrick.SetActive(false);
+
         if (GameManager.instance.PlayerOneTurn)
         {
             GameManager.instance.ChangePlayer();
