@@ -100,13 +100,13 @@ public class Swipo : MonoBehaviour
                                     Instantiate(Slash, Mid, Quaternion.AngleAxis(angle - 45f, Vector3.forward));
 
 
-                                    if (count >= transfoDeux)
+                                    if (count >= transfoDeux &&  TransfoActif != Forme2)
                                     {
                                         TransfoActif.SetActive(false);
                                         TransfoActif = Forme2;
                                         TransfoActif.SetActive(true);
                                     }
-                                    else if (count >= transfoUn)
+                                    else if (count >= transfoUn && TransfoActif != Forme1)
                                     {
                                         TransfoActif.SetActive(false);
                                         TransfoActif = Forme1;
