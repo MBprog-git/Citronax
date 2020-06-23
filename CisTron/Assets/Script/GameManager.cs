@@ -206,22 +206,22 @@ public class GameManager : MonoBehaviour
         {
             case 1:
 
-                TxtTitre.text = " Phase 1";
-                TxtInstruc.text = "Choisis les meilleurs citrons vert pour ton mojito, tu n'oserais pas mettre AUTRE CHOSE que des citrons vert n'est ce pas?"; 
+                TxtTitre.text = "Time To Harvest";
+                TxtInstruc.text = "Choisis les meilleurs citrons vert pour ton mojito, tu n'oserais pas mettre AUTRE CHOSE que des citrons vert n'est ce pas ?"; 
                 panelInstruc.SetActive(true);
          
                 break;    
             case 2:
                 PanelPhase1.SetActive(false);
-                TxtTitre.text = " Phase 2";
-                TxtInstruc.text = "Tranche le citron le plus de fois possible pour amasser des points\n Tranche aussi de la glace pour bonifier ta boisson mais attention au poison!"; 
+                TxtTitre.text = "Time To Slash";
+                TxtInstruc.text = "Tranche le citron le plus de fois possible pour amasser des points.\n Tranche aussi de la glace pour bonifier ta boisson mais attention au poison !"; 
                 panelInstruc.SetActive(true);
             
                 break;      
             case 3:
                 PanelPhase2.SetActive(false);
-                TxtTitre.text = "Phase 3";
-                TxtInstruc.text = "Secoue l'appareil pour mixer ta boisson et multiplier ton score!";
+                TxtTitre.text = "Shaker Time";
+                TxtInstruc.text = "Secoue l'appareil pour mixer ta boisson et multiplier ton score !";
                 panelInstruc.SetActive(true);
                 break;
         }
