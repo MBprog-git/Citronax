@@ -110,6 +110,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void Stop(string name)
+    {
+        if (_volumeToggle == 1)
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null)
+                return;
+            s.source.Stop();
+        }
+    }
+
     public void PlayRandomPitch(string name,float pitchMin,float pitchMax)
     {
         if (_volumeToggle == 1)

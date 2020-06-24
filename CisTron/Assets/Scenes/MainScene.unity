@@ -654,6 +654,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Shaker
+    clip: {fileID: 8300000, guid: 8a63f2c496c1e80438ec1ac2e1068426, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
 --- !u!4 &474547729
 Transform:
   m_ObjectHideFlags: 0
@@ -3815,7 +3822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOneTurn: 1
-  Phase: 0
+  Phase: 1
   TempsInstru: 7.5
   scoreP1: 0
   scoreP2: 0

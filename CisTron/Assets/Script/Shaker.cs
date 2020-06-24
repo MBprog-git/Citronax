@@ -15,6 +15,13 @@ public class Shaker : MonoBehaviour
 
     float Multip;
    public GameObject Bouteille;
+
+    AudioSource source;
+
+    private void Start()
+    {
+        source = FindObjectOfType<AudioManager>().sounds[8].source;
+    }
     void Update()
     {
         if (timer > 0)
@@ -28,6 +35,12 @@ public class Shaker : MonoBehaviour
 
             if (AccelForce.sqrMagnitude > MinAccel && GameManager.instance.Phase == 3)
             {
+                Handheld.Vibrate();
+                if (!source.isPlaying)
+                {
+                    FindObjectOfType<AudioManager>().Play("Shaker");
+                }
+                
                 float Magnitude = AccelForce.sqrMagnitude;
 
                 if (Magnitude > MinAccel + 6 && Multip < 2)
