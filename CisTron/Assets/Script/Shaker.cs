@@ -77,6 +77,7 @@ public class Shaker : MonoBehaviour
 
     void EndPhase3()
     {
+        FindObjectOfType<AudioManager>().Stop("Shaker");
         ingame = false;
         Bouteille.SetActive(false);
             float Final;

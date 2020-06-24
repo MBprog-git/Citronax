@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerOneTurn: 1
-  Phase: 1
+  Phase: 0
   TempsInstru: 7.5
   scoreP1: 0
   scoreP2: 0
